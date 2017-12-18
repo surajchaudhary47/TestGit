@@ -1,0 +1,52 @@
+        <asp:GridView ID="grReport" runat="server" AutoGenerateColumns="False"  onrowcommand="grReport_RowCommand"
+                    DataKeyNames="AutoId" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" 
+                    GridLines="Vertical" EnableModelValidation="True">
+                    <Columns>
+                        <asp:TemplateField HeaderText="S.No">
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="ParentName">
+                            <ItemTemplate>
+                                <asp:Label ID="lblPName" runat="server" Text='<%#Eval("ParentName") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Chld Name">
+                            <ItemTemplate>
+                                <asp:Label ID="lblCname" runat="server" Text='<%#Eval("ChildName") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Meeting To">
+                            <ItemTemplate>
+                                <asp:Label ID="lblFacname" runat="server" Text='<%#Eval("FacName") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Date Of Appointment">
+                            <ItemTemplate>
+                                <asp:Label ID="lbldate" runat="server" Text='<%#Eval("DateOfAppointment") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Time Of Appointment">
+                            <ItemTemplate>
+                                <asp:Label ID="lbltime" runat="server" Text='<%#Eval("TimeOfAppointment") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <%--<asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Delete" Text="Delete" />--%>
+
+                        <asp:TemplateField HeaderText="Delete">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Lnkbtn" runat="server" OnClientClick="return confirm('Are you sure,you want to delete?')" CausesValidation="false"  CommandName="DeleteRow"
+                                     CommandArgument='<%# Bind("AutoId") %>'>Delete</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+
+                    </Columns>
+                    <FooterStyle BackColor="#CCCCCC" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                    <AlternatingRowStyle BackColor="#CCCCCC" />
+                </asp:GridView>
+            </center>
